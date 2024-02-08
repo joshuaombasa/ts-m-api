@@ -33,29 +33,9 @@ app.get('/api/hospital/scanners', (req:Request, res: Response) => {
   res.status(200).json(hospitalScanners)
 })
 
-app.get(`/api/scanners`, (_req: Request, res: Response) => {
-  res.status(200).json(hospitals);
-});
 
-app.get(`/api/scanners/:id`, (req: Request, res: Response) => {
-  const { id } = req.params;
-  const selectedVan = hospitals.find(hospital => hospital.id === id);
-  if (selectedVan) {
-      res.status(200).json(selectedVan);
-  } else {
-      res.status(404).json({ message: "Scanner not found" });
-  }
-});
 
-app.post('/api/login', (req: Request, res: Response) => {
-  const { email, password } = req.body;
 
-  if (email !== user.email || password !== user.password) {
-      return res.status(400).json({ message: "Invalid credentials" });
-  }
-
-  return res.status(200).json({ message: "Login Successful" });
-});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
