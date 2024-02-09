@@ -5,7 +5,7 @@ import { user } from "../data/data";
 const router: Router = express.Router()
 
 
-router.post('/api/login', (req: Request, res: Response) => {
+router.post('', (req: Request, res: Response) => {
     const { email, password } = req.body;
   
     if (email !== user.email || password !== user.password) {
