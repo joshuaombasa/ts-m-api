@@ -4,11 +4,11 @@ import { hospitals } from "../data/data";
 
 const router: Router = express.Router()
 
-router.get(`/api/scanners`, (req: Request, res: Response) => {
+router.get(``, (req: Request, res: Response) => {
     res.status(200).json(hospitals);
 });
 
-router.get(`/api/scanners/:id`, (req: Request, res: Response) => {
+router.get(`/:id`, (req: Request, res: Response) => {
     const { id } = req.params;
     const selectedVan = hospitals.find(hospital => hospital.id === id);
     if (selectedVan) {
