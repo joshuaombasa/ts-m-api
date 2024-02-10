@@ -1,20 +1,9 @@
 // src/index.ts
-import express, { Request, Response } from 'express';
+import express from 'express';
+import {router as loginRouter} from './routes/login'
+import {router as hospitalRouter} from './routes/login'
+import {router as scannersRouter} from './routes/login'
 
-interface Scanner {
-  id: string;
-  name: string;
-  status: string;
-  price: number;
-  imageUrl: string;
-  description: string;
-}
-
-
-interface User {
-  email: string;
-  password: string;
-}
 
 const app = express();
 const port = 3000;
@@ -22,9 +11,9 @@ const port = 3000;
 
 
 
-app.use('/api/scanners', )
-app.use('/api/hospital/scanners')
-app.use('/api/login')
+app.use('/api/scanners', scannersRouter)
+app.use('/api/hospital/scanners', hospitalRouter)
+app.use('/api/login', loginRouter)
 
 
 
